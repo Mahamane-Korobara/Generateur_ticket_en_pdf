@@ -1,0 +1,465 @@
+/* === Styles généraux === */
+body {
+    margin: 0; /* Supprime les marges par défaut du body */
+    padding: 0; /* Supprime les paddings par défaut du body */
+    font-family: 'Arial', sans-serif; /* Définit la police principale */
+    display: flex; /* Utilise Flexbox pour centrer les éléments */
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    height: 100vh; /* Hauteur totale de l'écran */
+    background: linear-gradient(135deg, #0c0219, #260b45, #3a0d68); /* Ajoute un fond avec un dégradé */
+    background-size: cover; /* Assure que l'image de fond couvre toute la page */
+    color: white; /* Définit la couleur du texte en blanc */
+}
+
+/* === Conteneur principal === */
+.container {
+    width: 90%; /* Définit une largeur de 90% de la fenêtre */
+    max-width: 400px; /* Limite la largeur maximale à 400px */
+    text-align: center; /* Centre le texte */
+}
+
+/* === Boîte d'upload === */
+.upload-box {
+    background: rgba(255, 255, 255, 0.1); /* Fond légèrement transparent */
+    padding: 20px; /* Ajoute un espace intérieur */
+    border-radius: 10px; /* Arrondi les bords */
+    border: 2px dashed rgba(255, 255, 255, 0.5); /* Bordure en pointillés semi-transparente */
+    cursor: pointer; /* Change le curseur pour indiquer l'interactivité */
+    margin-bottom: 15px; /* Ajoute un espace en bas */
+}
+
+/* Centrage du contenu de la boîte */
+.upload-box, .avatar-upload {
+    display: flex; /* Utilise Flexbox */
+    flex-direction: column; /* Organise les éléments en colonne */
+    justify-content: center; /* Centre verticalement */
+    align-items: center; /* Centre horizontalement */
+}
+
+/* === Style de la boîte lorsqu'un fichier est sélectionné === */
+.file-selection {
+    border: 2px solid green; /* Bordure verte pour indiquer la sélection */
+    background-color: rgba(0, 255, 0, 0.1); /* Légère coloration verte */
+}
+
+/* === Style du message global === */
+#tout-message > :first-child {
+    color: grey; /* Change la couleur du premier message */
+}
+
+/* === Champs de formulaire === */
+input {
+    width: 94% !important; /* Définit une largeur presque totale */
+}
+
+input, button {
+    width: 100%; /* Les champs et boutons occupent toute la largeur disponible */
+    padding: 10px; /* Ajoute un padding intérieur */
+    margin: 8px 0; /* Espacement entre les champs */
+    border: none; /* Supprime la bordure */
+    border-radius: 5px; /* Arrondi les coins */
+    font-size: 16px; /* Augmente la taille du texte */
+}
+
+/* === Style du bouton === */
+button {
+    background-color: #ff6b6b; /* Couleur de fond rouge */
+    color: white; /* Texte blanc */
+    font-weight: bold; /* Rend le texte en gras */
+    cursor: pointer; /* Change le curseur au survol */
+    transition: 0.3s; /* Animation fluide */
+}
+
+/* Changement de couleur au survol */
+button:hover {
+    background-color: #e63946; /* Rouge plus foncé */
+}
+
+/* === Style pour la validation des champs === */
+.correct {
+    border: 2px solid green; /* Bordure verte si la saisie est correcte */
+}
+
+.incorrect {
+    border: 2px solid red; /* Bordure rouge si la saisie est incorrecte */
+}
+
+/* === Messages d'erreur sous les champs === */
+.erreur-message {
+    color: red; /* Couleur rouge pour les erreurs */
+    font-size: 0.9em; /* Taille légèrement plus petite */
+    margin-top: 5px; /* Ajoute un espace au-dessus du message */
+    display: block; /* Affichage en bloc pour bien positionner le message */
+}
+
+/* Style de base pour la section de confirmation */
+#confirmation {
+    display: flex;
+    flex-direction: column; /* Organisation en colonne */
+    justify-content: center; /* Centre verticalement */
+    align-items: center; /* Centre horizontalement */
+    width: 100vw; /* Prend toute la largeur de l'écran */
+    height: 100vh; /* Prend toute la hauteur de l'écran */
+    text-align: center; /* Centre le texte */
+    padding: 20px; /* Ajoute un peu d’espace */
+    box-sizing: border-box; /* Inclut le padding dans la taille totale */
+}
+
+#confirmation > div {
+    padding: 20px; /* Ajoute un peu d’espace autour */
+}
+
+
+#ticket {
+    /* Style pour la div avec fond dégradé */
+    background: linear-gradient(135deg, #1a0d2a, #472c6b, #643d92);
+    width: 90%; /* Largeur de la div */
+    max-width: 400px; /* Largeur maximale */
+    border-radius: 10px; /* Coins arrondis */
+    padding: 20px; /* Espacement intérieur */
+    color: white; /* Texte en blanc */
+    text-align: center; /* Centrer le texte */
+    font-family: Arial, sans-serif; /* Police de caractères */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre légère */
+    position: relative; /* Nécessaire pour positionner le pseudo-élément */
+}
+
+/* Pseudo-élément pour la bordure en dégradé */
+#ticket::before {
+    content: ""; /* Nécessaire pour afficher le pseudo-élément */
+    position: absolute; /* Position absolue par rapport à la div parente */
+    top: -2px; /* Décalage pour compenser l'épaisseur de la bordure */
+    left: -2px; /* Décalage pour compenser l'épaisseur de la bordure */
+    right: -2px; /* Décalage pour compenser l'épaisseur de la bordure */
+    bottom: -2px; /* Décalage pour compenser l'épaisseur de la bordure */
+    background: linear-gradient(to right, white, #ff4500); /* Dégradé blanc à orange */
+    border-radius: 10px; /* Coins arrondis */
+    z-index: -1; /* Place le pseudo-élément derrière le contenu */
+}
+
+/* Cette règle s'appliquera uniquement lorsque la classe no-before est présente sur #ticket */
+#ticket.no-before::before {
+    display: none !important;
+}
+
+#confirmation-name {
+    background: linear-gradient(to right, #ff4500, white); /* Dégradé */
+    -webkit-background-clip: text; /* Applique le dégradé au texte */
+    -webkit-text-fill-color: transparent; /* Rend le texte transparent pour voir le fond */
+    font-weight: bold; /* Rend le texte plus visible */
+}
+
+#confirmation-email {
+  color: #ff6b6b;
+}
+
+/* Style du titre */
+#confirmation h1 {
+    margin-bottom: 10px; /* Espacement en bas */
+}
+
+/* Style des paragraphes */
+#confirmation p {
+    margin: 10px 0; /* Espacement vertical */
+}
+
+/* Style du texte en gras (Coding Conf) */
+#confirmation strong {
+    font-size: 18px; /* Taille de la police */
+}
+
+/* Style du compte à rebours */
+#confirmation-timer {
+    font-size: 20px; /* Taille de la police */
+    font-weight: bold; /* Texte en gras */
+    color: #e74c3c; /* Couleur rouge */
+    display: block; /* Afficher sur une nouvelle ligne */
+    margin-top: 20px; /* Espacement en haut */
+}
+
+.mini-div {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+}
+
+.mini-div img {
+  max-width: 50px; 
+  max-height: 50px; 
+  border-radius: 5px;
+  margin-top: 13px;
+}
+
+.lesNoms{
+  margin-left: 25px;
+}
+
+/* Style du conteneur du bouton */
+.download-container {
+    margin-top: 30px;
+    text-align: center;
+}
+
+/* Style du bouton de téléchargement */
+.download-button {
+    background: linear-gradient(135deg, #ff4500, #ff6b6b);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(255, 69, 0, 0.3);
+}
+
+/* Effet au survol */
+.download-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 69, 0, 0.4);
+}
+
+/* Effet au clic */
+.download-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(255, 69, 0, 0.3);
+}
+
+/* Style de l'icône */
+.download-button i {
+    font-size: 18px;
+}
+
+
+
+
+/* === Breakpoint pour les très petits mobiles (320px et moins) === */
+@media screen and (max-width: 320px) {
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    input, button {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .upload-box {
+        padding: 10px;
+    }
+}
+
+/* === Breakpoint pour mobiles (321px - 480px) === */
+@media screen and (min-width: 321px) and (max-width: 480px) {
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+}
+
+/* === Breakpoint pour grands mobiles et petites tablettes (481px - 768px) === */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .container {
+        width: 85%;
+        max-width: 500px;
+    }
+}
+
+/* === Breakpoint pour tablettes (769px - 1024px) === */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        max-width: 600px;
+    }
+}
+
+/* === Styles responsifs pour la section de confirmation === */
+#confirmation {
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+#ticket {
+    width: 90%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* === Ajustements pour la mini-div (section avec photo et infos) === */
+.mini-div {
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+}
+
+/* === Media queries pour la section de confirmation === */
+@media screen and (max-width: 320px) {
+    #ticket {
+        padding: 15px;
+    }
+
+    .mini-div img {
+        max-width: 40px;
+        max-height: 40px;
+    }
+
+    .lesNoms p {
+        font-size: 14px;
+    }
+}
+
+@media screen and (min-width: 321px) and (max-width: 480px) {
+    #ticket {
+        padding: 20px;
+    }
+
+    .mini-div {
+        gap: 20px;
+    }
+}
+
+/* === Ajustements pour l'orientation paysage sur mobile === */
+@media screen and (max-height: 480px) and (orientation: landscape) {
+    body {
+        height: auto;
+        min-height: 100vh;
+        padding: 20px 0;
+    }
+
+    .container {
+        margin: 20px auto;
+    }
+
+    #confirmation {
+        height: auto;
+        min-height: 100vh;
+        padding: 20px;
+    }
+}
+
+/* === Optimisations pour les écrans haute résolution === */
+@media screen and (min-width: 1025px) {
+    .container {
+        max-width: 800px;
+    }
+
+    #ticket {
+        max-width: 500px;
+    }
+
+    .mini-div img {
+        max-width: 60px;
+        max-height: 60px;
+    }
+}
+
+/* === Ajustements pour le mode sombre === */
+@media (prefers-color-scheme: dark) {
+    .upload-box {
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    input {
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+    }
+
+    input::placeholder {
+        color: rgba(255, 255, 255, 0.6);
+    }
+}
+
+/* Très petits écrans (320px et moins) pour le bouton de telechargement */
+@media screen and (max-width: 320px) {
+    .download-container {
+        margin-top: 20px;
+        padding: 0 10px;
+    }
+    
+    .download-button {
+        width: 100%;
+        padding: 8px 15px;
+        font-size: 13px;
+    }
+    
+    .download-button i {
+        font-size: 14px;
+    }
+}
+
+/* Mobiles (321px - 480px) */
+@media screen and (min-width: 321px) and (max-width: 480px) {
+    .download-container {
+        margin-top: 25px;
+        padding: 0 15px;
+    }
+    
+    .download-button {
+        width: auto;
+        min-width: 200px;
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+    
+    .download-button i {
+        font-size: 16px;
+    }
+}
+
+/* Tablettes (481px - 768px) */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .download-container {
+        margin-top: 30px;
+    }
+    
+    .download-button {
+        min-width: 250px;
+        padding: 12px 25px;
+        font-size: 16px;
+    }
+}
+
+/* Mode paysage sur mobile */
+@media screen and (max-height: 480px) and (orientation: landscape) {
+    .download-container {
+        margin: 20px 0;
+    }
+    
+    .download-button {
+        padding: 8px 20px;
+        font-size: 14px;
+    }
+}
+
+/* Grands écrans (769px et plus) */
+@media screen and (min-width: 769px) {
+    .download-container {
+        margin-top: 35px;
+    }
+    
+    .download-button {
+        min-width: 300px;
+        padding: 15px 30px;
+        font-size: 18px;
+    }
+    
+    .download-button i {
+        font-size: 20px;
+    }
+}

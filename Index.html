@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conférence Coding 2025</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container" style="display: block">
+        <h1>Votre aventure vers la Conférence Coding 2025 commence ici !</h1>
+        <p>Réservez votre place pour la plus grande conférence de codage de l'année prochaine.</p>
+
+        <div class="upload-box">
+            <input type="file" id="avatar-upload" accept="image/png, image/jpeg" hidden>
+            <label for="avatar-upload" class="avatar-upload">
+                <img src="" id="image" style="display: none; max-width: 100px; max-height: 100px;">
+                Glissez-déposez ou cliquez pour télécharger
+            </label>
+        </div>
+        <div id="tout-message">
+            <p>📌 Téléchargez votre photo (JPG ou PNG, taille max : 500Ko).</p>
+            <p id="message"></p>
+        </div>
+        <form id="ticket-form">
+          <div>
+             <input type="text" id="full-name" placeholder="Nom complet">
+          </div>
+          <div>
+             <input type="text" id="email" placeholder="Adresse e-mail">
+          </div>
+          <div>
+             <input type="text" id="github-username" placeholder="Nom d’utilisateur github">
+          </div>
+            <button type="submit">Générer mon ticket</button>
+        </form>
+    </div>
+    <!-- Section de confirmation (masquée par défaut) -->
+    <div id="confirmation" style="display: none;">
+        <div>
+          <h1>Conférence Codage</h1>
+          <p>Félicitations, <span id="confirmation-name"></span> !</p>
+          <p>Votre ticket est prêt.</p>
+        </div>
+        <div>
+          <p>Nous vous enverrons des mises à jour avant l'événement à l’adresse e-mail : <span id="confirmation-email"></span>.</p>
+        </div>
+        <div id="ticket">
+         <div>
+            <h2>Conférence Codage</h2>
+            <p style="color: gray">1 Mars 2025 / Bamako, Mali</p>
+         </div>
+         <div class="mini-div">
+            <img src="" id="image-charger">
+            <div class="lesNoms">
+               <p id="confirmation-name-ticket" style="color: white; font-size: 18px; font-weight: bold;"></p>
+               <p><i class="fab fa-github"></i>
+                  <span id="confirmation-github" style="color: gray"></span>
+               </p>
+           </div>
+         </div>
+         <!-- <p><span id="confirmation-timer">00:00:00</span></p>-->
+        </div>
+            <!-- Après la div #ticket -->
+        <div class="download-container">
+          <button id="download-pdf" class="download-button">
+            <i class="fas fa-file-pdf"></i>
+            Télécharger mon ticket
+          </button>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
